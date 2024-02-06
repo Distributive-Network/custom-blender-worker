@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "dcp-custom-blender-worker"
+version = "0.1.0"
+description = ""
+authors = ["Hamada <hamada@distributive.network>"]
+readme = "README.md"
+packages = [{include = "dcp_custom_blender_worker"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.11.dev0"
+fastapi = "^0.109.0"
+bpy = "^4.0.0"
+python-multipart = "^0.0.6"
+uvicorn = "^0.27.0.post1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
