@@ -1,14 +1,16 @@
-# DCP Custom Blender Worker
+# README
 
-Leveraging custom worktimes and the custom-worker base class, we are able to develop a custom blender worktime which enables users to safely render job deployers' scenes without executing untrusted code on their local machine. 
+## About
 
+This is the official Wails Svelte template.
 
-## Getting Started
+## Live Development
 
-To get started, simply run the following:
+To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
+server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
+and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
+to this in your browser, and you can call your Go code from devtools.
 
-1. `pip install -r ./requirements.txt`
-2. `uvicorn dcp_custom_blender_worker.main:app --port 8001`
-3. `npm run start`
-4. ???
-5. Profit 💰💰💰
+## Building
+
+To build a redistributable, production mode package, use `wails build`.
