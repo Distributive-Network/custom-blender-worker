@@ -26,3 +26,18 @@ jobs:
         pushd ./custom-blender-worker/
         pyinstaller --collect-all bpy -F ./dcp_custom_blender_worker\main.py -F -n pyproc
         popd 
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18 
+    - name: Install npm packages
+      run: |
+        pushd ./custom-blender-worker/
+        npm ci
+        npm install -g pkg
+        pkg .\src\index.js -t node18-win -o ./dist/nodeproc.exe
+        popd
+
+    - name: Check binaries
+      run: |
+        ls -lah ./custom-blender-worker/dist/
