@@ -1,0 +1,24 @@
+name: Package Application
+
+on:
+  push: 
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.10-slim
+    steps:
+    - uses: actions/checkout@v3 
+    - name: Install python requirements
+      run: |
+        python3 -m pip install -r ./custom-blender-worker/requirements.txt
+        python3 -m pip install pyinstaller
+    - name: Package pyproc
+      run: |
+        pushd ./custom-blender-worker/
+        pyinstaller --collect-all bpy -F ./dcp_custom_blender_worker\main.py -F -n pyproc
+        popd 
