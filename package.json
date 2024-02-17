@@ -10,9 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@distributive/custom-worker": "^0.0.1",
     "axios": "^1.6.7",
-    "dcp-client": "^4.3.5",
-    "dcp-custom-worker": "file:../dcp-custom-worker",
-    "dcp-worker": "file:../dcp-worker"
+    "dcp-client": "^4.3.7",
   }
 }
