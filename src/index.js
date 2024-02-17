@@ -1,4 +1,4 @@
-const { setupDCP, Worker } = require('dcp-custom-worker');
+const { setupDCP, Worker } = require('@distributive/custom-worker');
 const axios = require('axios');
 const process = require('process');
 

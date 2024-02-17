@@ -12,6 +12,6 @@
   "dependencies": {
     "@distributive/custom-worker": "^0.0.1",
     "axios": "^1.6.7",
-    "dcp-client": "^4.3.7",
+    "dcp-client": "^4.3.7"
   }
 }
