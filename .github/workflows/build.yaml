@@ -1,0 +1,43 @@
+name: Package Application
+
+on:
+  push: 
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v4 
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Install python requirements
+      run: |
+        python3 -m pip install -r ./custom-blender-worker/requirements.txt
+        python3 -m pip install pyinstaller
+    - name: Package pyproc
+      run: |
+        pushd ./custom-blender-worker/
+        pyinstaller --collect-all bpy -F ./dcp_custom_blender_worker\main.py -F -n pyproc
+        popd 
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18 
+    - name: Install npm packages
+      run: |
+        pushd ./custom-blender-worker/
+        npm ci
+        npm install -g pkg
+        pkg .\src\index.js -t node18-win -o ./dist/nodeproc.exe
+        popd
+
+    - name: Check binaries
+      run: |
+        ls ./custom-blender-worker/dist/
