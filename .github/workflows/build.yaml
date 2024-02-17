@@ -40,4 +40,4 @@ jobs:
 
     - name: Check binaries
       run: |
-        ls -lah ./custom-blender-worker/dist/
+        ls ./custom-blender-worker/dist/
