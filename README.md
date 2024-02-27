@@ -8,7 +8,7 @@ Leveraging custom worktimes and the custom-worker base class, we are able to dev
 To get started, simply run the following:
 
 1. `pip install -r ./requirements.txt`
-2. `uvicorn dcp_custom_blender_worker.main:app --port 8001`
+2. `python3 ./dcp_custom_blender_worker/main.py --cores $NUMBER_OF_CORES_HERE`
 3. `npm run start`
 4. ???
 5. Profit 💰💰💰
